@@ -1,0 +1,86 @@
+Assignment 
+ 
+1)     Create a public Class named Card which represents a regular playing card. The class should have 2 private 
+		enums: Value (2-Ace) Suit( Spades, Clubs, Hearts, and Diamonds).  Create Get and Set methods to manipulate 
+		the members of the class.  Constructor should take a value for each data member.  If you want, you can 
+		implement Methods associated with these enums to accept / return strings and/or Integers for each enum.  
+2)     Create another public Class named DeckofCards.  This class should have an array of class Card to contain 
+		all 52 cards.  The constructor should be able to initialize the card array to contain all 52 values.  
+		You should also consider a counter on the number of cards in a deck.  As you deal the cards, there will 
+		be fewer cards left in the deck.
+3)     Create an Interface called Dealer which contains 2 methods, Shuffle and DealCard (which returns a Card 
+		Object)
+4)   Implement the Dealer Interface with a new class NormalDealer for the dealer.  NormalDealer implements 
+		the Shuffle method by some means of randomizing the deck (I’ll let you figure that one out).    
+		The DealCard method will return the top card available in the deck.  Both method should be passed a 
+		DeckofCards object. 
+5)   Create a Player class that contains an array of 5 Cards and any other attributes that you would like to 
+		associate with a player.
+6)   Create a class with a main method that instantiates a DeckofCards and multiple Player.  Use the Shuffle 
+		method to shuffle the deck and DealCard method to deal 5 cards to each player.  
+7)   Print the cards dealt to each player.
+
+For those interested and big time extra-credit – Implement the Game of War using the Classes defined above.
+
+
+
+
+
+We will be continuing with last week’s card game program (I hope you all got it working – let me know if you need 
+	some help).  Last week it was suggested to use an Array of Card Objects to implement the DeckofCards class.  
+	This week, I would recommend that you change the DeckofCards and Player classes to use the List<type> 
+	container class.  These were introduced in an earlier week’s presentation on arrays.  Additionally, we will be 
+	adding two new card deck subclasses PinochleDeck and BlackJackShoe, which both extend the base class of DeckofCards.  I’ll explain the differences later with these types of card decks.  Also, let’s break up the Dealer Interface, into 2 interfaces: Shuffle and Deal.  We can then extend the Deal interface for a pinochle dealer, a blackjack dealer, and a poker dealer interface each extending Deal and implement these interfaces with an associated class implementing the interface.   
+
+1)	Update DeckofCards Class to define the list (private List<Card> cardList;) to hold the deck of cards. You’ll 
+	need to import java.util.List.  To initialize the list, add the following to your DeckofCards class 
+	constructor:
+
+cardList = new ArrayList<Card> ();  //You’ll need to import java.util.ArrayList
+
+You’ll need to change your program to access the cards by using the methods of the List Class 
+	(ie.  add(), get(), remove(), etc.)
+
+2)	Create 3 new classes that extend a deck of cards.  
+a.	PinochleDeck – Note:  A Pinochle deck of cards contains 2 of each of the following cards 9, 10, Jack, 
+		Queen, King, and Ace of each suit.  This is a total of 48 cards.  You should define a method that 
+		Loads the deck and is called from the constructor.  This method should be overridden by subclasses 
+		(i.e. PinochleDeck).
+b.	BlackJackShoe – Note: The shoe in Black Jack can typically hold up to 6 standard decks of 52 cards.  
+		Initialize the Deck accordingly.
+c.	PokerDeck – Similar to last week’s standard deck of 52 cards.
+
+3)	Split the Dealer interface into 2 interfaces Shuffle and Deal.  The Deal interface should be extended by a 
+		Deal3 interface to extend Deal.  The Deal3 will return an array of 3 cards, while the standard Deal 
+		interface will return an array of 1 Card. Shuffle the decks. It’s typical for a Pinochle dealer to deal 3 
+		cards at a time to each of 4 players – 12 cards each.  Create a PinochleDealer class to implement the 
+		Deal3 interface.
+
+4)	Change the Player Class to use a List<Card> similar to the DeckofCards Class.  
+
+5)	Change your main method to create a PinochleDeck, BlackJackShoe, and a PokerDeck.  Create 4 Pinochle players 
+		(deal twelve cards each, 3 at a time), 5 BlackJack Player’s – 2 Cards each from the “Shoe”, and 4 Poker 
+		Player’s – 5 Cards each.  Print each player’s hands.
+
+
+As always, let me know if you have any questions.  I suspect this might be confusing for those of you that don’t 
+		play a lot of cards!
+
+
+
+
+
+Sorry, but I realized after I sent this out earlier this week that my explanation for implementing the Dealer interface was not so good.  I was kind of leaving it up to you to come up with an implementation.  After doing my own version of this last night, I thought I would share some more details in case you haven’t done this yet and you were interested.
+
+1)	Split Dealer interface into 2 new interfaces, Deal and Shuffle with a method for each interface.
+2)	Implement the Shuffle Interface with a new Class ShuffleCards.
+3)	Implement the Deal Interface with two new Classes, Deal1 and Deal3 – They should now return an array of cards.
+4)	Add two new methods to the DeckofCards Class to Shuffle and Deal which use the ShuffleCards and Deal1 class (in order to deal1 card by default).
+5)	In the PinochleDeck Class constructor, override the Deal interface with the Deal3 class.
+6)	In your main code,  use the methods associated with the DeckofCards class to shuffle and deal.
+
+Extra Credit:
+
+If you created a Player Class in your last assignment, extend the Player class to create a BlackJackPlayer.  In the PrintHand method, print the total of the cards for each Black Jack player:  2-9 = face value,  10,J,Q,K  = 10, and Ace = 11. 
+
+Have Fun!
