@@ -1,4 +1,5 @@
-Assignment 
+
+Java Week 4 Assignment
  
 1)     Create a public Class named Card which represents a regular playing card. The class should have 2 private 
 		enums: Value (2-Ace) Suit( Spades, Clubs, Hearts, and Diamonds).  Create Get and Set methods to manipulate 
@@ -26,11 +27,21 @@ For those interested and big time extra-credit – Implement the Game of War usi
 
 
 
+
+
+
+
+Java Week 5 Assignment
+
 We will be continuing with last week’s card game program (I hope you all got it working – let me know if you need 
 	some help).  Last week it was suggested to use an Array of Card Objects to implement the DeckofCards class.  
 	This week, I would recommend that you change the DeckofCards and Player classes to use the List<type> 
 	container class.  These were introduced in an earlier week’s presentation on arrays.  Additionally, we will be 
-	adding two new card deck subclasses PinochleDeck and BlackJackShoe, which both extend the base class of DeckofCards.  I’ll explain the differences later with these types of card decks.  Also, let’s break up the Dealer Interface, into 2 interfaces: Shuffle and Deal.  We can then extend the Deal interface for a pinochle dealer, a blackjack dealer, and a poker dealer interface each extending Deal and implement these interfaces with an associated class implementing the interface.   
+	adding two new card deck subclasses PinochleDeck and BlackJackShoe, which both extend the base class of DeckofCards.  
+	I’ll explain the differences later with these types of card decks.  Also, let’s break up the Dealer Interface, into 
+	2 interfaces: Shuffle and Deal.  We can then extend the Deal interface for a pinochle dealer, a blackjack dealer, 
+	and a poker dealer interface each extending Deal and implement these interfaces with an associated class implementing 
+	the interface.   
 
 1)	Update DeckofCards Class to define the list (private List<Card> cardList;) to hold the deck of cards. You’ll 
 	need to import java.util.List.  To initialize the list, add the following to your DeckofCards class 
@@ -70,17 +81,47 @@ As always, let me know if you have any questions.  I suspect this might be confu
 
 
 
-Sorry, but I realized after I sent this out earlier this week that my explanation for implementing the Dealer interface was not so good.  I was kind of leaving it up to you to come up with an implementation.  After doing my own version of this last night, I thought I would share some more details in case you haven’t done this yet and you were interested.
+
+
+Java Week 5 Assignment edit
+
+Sorry, but I realized after I sent this out earlier this week that my explanation for implementing the Dealer 
+	interface was not so good.  I was kind of leaving it up to you to come up with an implementation.  After 
+	doing my own version of this last night, I thought I would share some more details in case you haven’t 
+	done this yet and you were interested.
 
 1)	Split Dealer interface into 2 new interfaces, Deal and Shuffle with a method for each interface.
 2)	Implement the Shuffle Interface with a new Class ShuffleCards.
 3)	Implement the Deal Interface with two new Classes, Deal1 and Deal3 – They should now return an array of cards.
-4)	Add two new methods to the DeckofCards Class to Shuffle and Deal which use the ShuffleCards and Deal1 class (in order to deal1 card by default).
+4)	Add two new methods to the DeckofCards Class to Shuffle and Deal which use the ShuffleCards and Deal1 class 
+		(in order to deal1 card by default).
 5)	In the PinochleDeck Class constructor, override the Deal interface with the Deal3 class.
 6)	In your main code,  use the methods associated with the DeckofCards class to shuffle and deal.
 
 Extra Credit:
 
-If you created a Player Class in your last assignment, extend the Player class to create a BlackJackPlayer.  In the PrintHand method, print the total of the cards for each Black Jack player:  2-9 = face value,  10,J,Q,K  = 10, and Ace = 11. 
+If you created a Player Class in your last assignment, extend the Player class to create a BlackJackPlayer.  
+	In the PrintHand method, print the total of the cards for each Black Jack player:  2-9 = face value,  
+	10,J,Q,K  = 10, and Ace = 11. 
 
 Have Fun!
+
+
+
+
+
+
+Java Week 6 Assignment
+
+1)	Change the DeckofCards class to be an Abstract Class with an Abstract Method to Initialize the Card deck.  
+		This method must be overridden and implanted in each of the sub classes for the various types of card decks 
+ 		that were described in the Week5 assignment.  The initialize card deck method should be called from the 
+ 		DeckofCards Constructor.
+2)	In the Player class, create overloaded constructors, one taking a string for the player’s name, and the other 
+		taking an Integer for a player number to set the player name to “Player#” where # is the player number.
+
+
+Hopefully, you’ll find the changes to be implemented relatively straight forward and not too demanding.  In addition 
+	to the changes above for the cardgame program, you can also review the lessons from the Polymorphism file on the 
+	sharepoint contain the material covered in the lectures.
+

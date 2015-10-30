@@ -11,7 +11,7 @@ public class DeckMain {
 	public static void main(String[] args) {
 		
 		//  List of players for the game (passed on to card game object).
-		List<Player> players = new ArrayList<Player>();
+		List<Player_O> players = new ArrayList<Player_O>();
 		
 		// Creating a dealer
 //		NormalDealer dealer = new NormalDealer(1);
@@ -26,10 +26,10 @@ public class DeckMain {
 //		CardGame_War2 newWarGame;
 		
 		// Players to participate in the card games
-		Player newPlayer1 = new Player("Doug");
-		Player newPlayer2 = new Player("Lisa");
-		Player newPlayer3 = new Player("Frankadopolopolous");
-//		Player newPlayer4 = new Player("Pat");
+		Player_O newPlayer1 = new Player_O("Doug");
+		Player_O newPlayer2 = new Player_O("Lisa");
+		Player_O newPlayer3 = new Player_O("Frankadopolopolous");
+//		Player_O newPlayer4 = new Player_O("Pat");
 		
 		//  Adding players to card game
 		players.add(newPlayer1);

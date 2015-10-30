@@ -15,10 +15,10 @@ public class CardGame_War2 implements CardGame {
 	//  Number of cards per player.
 	private int cardsPerPlayer;
 	
-	private List<Player> playerList;
+	private List<Player_O> playerList;
 	
-	private Player player1;
-	private Player player2;
+	private Player_O player1;
+	private Player_O player2;
 	
 	private int handCounter = 0;
 	private int tieCounter = 0;
@@ -27,7 +27,7 @@ public class CardGame_War2 implements CardGame {
 	 *   Basic constructor with the list of players (for war should only be 2).
 	 * @param playerList
 	 */
-	public CardGame_War2(List<Player> playerList) {
+	public CardGame_War2(List<Player_O> playerList) {
 
 		//  Calling main constructor with player list and the number of cards divided by 2
 		this(playerList, (dealerJoe.getNumberDecks() * 52 ) / 2);
@@ -39,7 +39,7 @@ public class CardGame_War2 implements CardGame {
 	 *   Basic constructor with the list of players (for war should only be 2).
 	 * @param playerList
 	 */
-	public CardGame_War2(List<Player> playerList, int numberPerPlayer) {
+	public CardGame_War2(List<Player_O> playerList, int numberPerPlayer) {
 		
 		cardsPerPlayer = numberPerPlayer;
 		
@@ -53,7 +53,7 @@ public class CardGame_War2 implements CardGame {
 	}
 	
 	
-	public void setPlayerList(List<Player> playerList) {
+	public void setPlayerList(List<Player_O> playerList) {
 		
 		if (playerList.size() > 2) {
 			System.err.println("Only two players can play WAR at the same time, only using first two in the list of players.");
@@ -61,17 +61,17 @@ public class CardGame_War2 implements CardGame {
 		}
 		else if (playerList.size() < 1) {
 			System.err.println("Two players are needed to play WAR, none was given, adding Larry and Frankadopolopolous to play against each other.");
-			playerList.add(new Player("Larry"));
-			playerList.add(new Player("Frankadopolopolous"));
+			playerList.add(new Player_O("Larry"));
+			playerList.add(new Player_O("Frankadopolopolous"));
 			
 		}
 		else if (playerList.size() < 2) {
 			System.err.println("Two players are needed to play WAR, only one was given, adding Frankadopolopolous to play against " + playerList.get(0).getName());
-			playerList.add(new Player("Frankadopolopolous"));
+			playerList.add(new Player_O("Frankadopolopolous"));
 		
 		}
 		
-		this.playerList = new ArrayList<Player>();
+		this.playerList = new ArrayList<Player_O>();
 		this.playerList.add(playerList.get(0));
 		this.playerList.add(playerList.get(1));
 		
@@ -90,7 +90,7 @@ public class CardGame_War2 implements CardGame {
 	public void dealHands() {
 		Card myCard;
 		for (int cardI = 0; cardI < cardsPerPlayer; cardI++) {
-			for (Player thisPlayer : playerList) {
+			for (Player_O thisPlayer : playerList) {
 				myCard = dealerJoe.dealCard();
 				thisPlayer.addToHand(myCard);				
 			}
@@ -101,7 +101,7 @@ public class CardGame_War2 implements CardGame {
 	public void printPlayersHands() {
 		System.out.println("\n****************************************************************************************************");
 		
-		for (Player player : playerList) {
+		for (Player_O player : playerList) {
 			System.out.println("****************************************************************************************************");
 			player.printHand();
 			System.out.println("\n****************************************************************************************************");
@@ -111,7 +111,7 @@ public class CardGame_War2 implements CardGame {
 
 	
 	public void foldAllHands() {
-		for (Player thisPlayer : playerList) {
+		for (Player_O thisPlayer : playerList) {
 			thisPlayer.foldHand();
 		}
 	}
@@ -218,7 +218,7 @@ public class CardGame_War2 implements CardGame {
 	
 	
 	
-	public void wonHand(Player winner, List<Card> wonList, Player loser) {
+	public void wonHand(Player_O winner, List<Card> wonList, Player_O loser) {
 		for (Card card : wonList) {
 			winner.addToHand(card);
 		}
@@ -288,7 +288,7 @@ public class CardGame_War2 implements CardGame {
 	}
 
 
-	public void dealHands(Player player, DeckOfCards deck, int numOfCards) {
+	public void dealHands(Player_O player, DeckOfCards deck, int numOfCards) {
 		// TODO Auto-generated method stub
 		
 	}

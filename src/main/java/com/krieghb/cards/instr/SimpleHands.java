@@ -1,26 +1,100 @@
 package com.krieghb.cards.instr;
 
+import java.util.ArrayList;
+
+import com.krieghb.cards.instr.abstracts.DeckOfCards;
+import com.krieghb.cards.instr.dealers.BlackJackDealer;
+import com.krieghb.cards.instr.dealers.NormalDealer;
+import com.krieghb.cards.instr.dealers.PinocleDealer;
+import com.krieghb.cards.instr.dealers.PokerDealer;
+
 public class SimpleHands {
 
 	public static void main(String[] args) {
 		
 		DeckOfCards deck = new DeckOfCards();
 		NormalDealer joeTheDealer = new NormalDealer();
+		PinocleDealer larryTheDealer = new PinocleDealer();
+		BlackJackDealer moeTheDealer = new BlackJackDealer();
+		PokerDealer langTheDealer = new PokerDealer();
 		
 		joeTheDealer.shuffle(deck);
 		
-		Player player1 = new Player("Larry");
-		Player player2 = new Player();
+		Player wPlayer1 = new Player("Fred");
+		Player wPlayer2 = new Player();
 		
-		for (int i = 0; i < 5; i++){
-			player1.getACard(joeTheDealer.dealCard(deck));
-			player2.getACard(joeTheDealer.dealCard(deck));
-			
+		Player pPlayer1 = new Player("Curly");
+		Player pPlayer2 = new Player("Moe");
+		Player pPlayer3 = new Player("Larry");
+		Player pPlayer4 = new Player("Shemp");
+		
+		Player bjPlayer1 = new Player("Gibbs");
+		Player bjPlayer2 = new Player("McGee");
+		Player bjPlayer3 = new Player("Tony");
+		Player bjPlayer4 = new Player("Ducky");
+		Player bjPlayer5 = new Player("Ziva");
+
+		Player poPlayer1 = new Player("Cartman");
+		Player poPlayer2 = new Player("Kenny");
+		Player poPlayer3 = new Player("Stan");
+		Player poPlayer4 = new Player("Eddie");
+		
+//		for (int i = 0; i < 5; i++){
+//			player1.getACard(joeTheDealer.dealCard(deck));
+//			player2.getACard(joeTheDealer.dealCard(deck));
+//			
+//		}
+//		
+//		
+//		player1.showHands();
+//		player2.showHands();
+
+		ArrayList<Player> wPlayerList = new ArrayList<Player>();
+		wPlayerList.add(wPlayer1);
+		wPlayerList.add(wPlayer2);
+		
+		ArrayList<Player> pPlayerList = new ArrayList<Player>();
+		pPlayerList.add(pPlayer1);
+		pPlayerList.add(pPlayer2);
+		pPlayerList.add(pPlayer3);
+		pPlayerList.add(pPlayer4);
+
+		ArrayList<Player> bjPlayerList = new ArrayList<Player>();
+		bjPlayerList.add(bjPlayer1);
+		bjPlayerList.add(bjPlayer2);
+		bjPlayerList.add(bjPlayer3);
+		bjPlayerList.add(bjPlayer4);
+		bjPlayerList.add(bjPlayer5);
+
+		ArrayList<Player> poPlayerList = new ArrayList<Player>();
+		poPlayerList.add(poPlayer1);
+		poPlayerList.add(poPlayer2);
+		poPlayerList.add(poPlayer3);
+		poPlayerList.add(poPlayer4);
+		
+//		new CardGame_War(playerList);
+		
+		//  Playing Pinocle
+		larryTheDealer.dealHands(pPlayerList);
+		for (Player player : pPlayerList) {
+			player.showHands();
+		}
+		
+		//  Playing BlackJack
+		moeTheDealer.DealHands(bjPlayerList);
+		for (Player player : bjPlayerList) {
+			player.showHands();
+		}
+		
+		//  Playing Poker
+		langTheDealer.DealHands(poPlayerList);
+		for (Player player : poPlayerList) {
+			player.showHands();
 		}
 		
 		
-		player1.showHands();
-		player2.showHands();
+		
+		
 		
 	}
 

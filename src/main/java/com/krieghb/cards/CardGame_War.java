@@ -18,10 +18,10 @@ public class CardGame_War implements CardGame {
 	//  Number of cards per player.
 	private int numOfCards;
 	
-	private List<Player> playerList;
+	private List<Player_O> playerList;
 	
-	private Player player1;
-	private Player player2;
+	private Player_O player1;
+	private Player_O player2;
 	
 	private int handCounter = 0;
 	private int tieCounter = 0;
@@ -30,7 +30,7 @@ public class CardGame_War implements CardGame {
 	 *   Basic constructor with the list of players (for war should only be 2).
 	 * @param playerList
 	 */
-	public CardGame_War(List<Player> playerList) {
+	public CardGame_War(List<Player_O> playerList) {
 
 		//  Calling main constructor with player list, new deck and default card number.
 		this(playerList, new ParentDeckOfCards(2), Number_Constants.WAR_CARD_PER_PLAYER);
@@ -39,7 +39,7 @@ public class CardGame_War implements CardGame {
 	}
 	
 	
-	public CardGame_War(Player player1, Player player2) {
+	public CardGame_War(Player_O player1, Player_O player2) {
 
 		//  Calling main constructor with new player list with given players, new deck and default card number.
 //		this(Arrays.asList(player1, player2), new DeckOfCards(), Number_Constants.WAR_CARD_PER_PLAYER);
@@ -49,7 +49,7 @@ public class CardGame_War implements CardGame {
 	}
 	
 	
-	public CardGame_War(List<Player> playerList, ParentDeckOfCards deck) {
+	public CardGame_War(List<Player_O> playerList, ParentDeckOfCards deck) {
 
 		//  Calling main constructor with player list, given deck and default card number.
 		this(playerList, deck, Number_Constants.WAR_CARD_PER_PLAYER);
@@ -58,7 +58,7 @@ public class CardGame_War implements CardGame {
 	}
 	
 	
-	public CardGame_War(List<Player> playerList, ParentDeckOfCards deck, int numOfCards) {
+	public CardGame_War(List<Player_O> playerList, ParentDeckOfCards deck, int numOfCards) {
 
 		setPlayerList(playerList);
 		
@@ -72,7 +72,7 @@ public class CardGame_War implements CardGame {
 	}
 	
 	
-	public void setPlayerList(List<Player> playerList) {
+	public void setPlayerList(List<Player_O> playerList) {
 		
 		if (playerList.size() > 2) {
 			System.err.println("Only two players can play WAR at the same time, only using first two in the list of players.");
@@ -80,11 +80,11 @@ public class CardGame_War implements CardGame {
 		}
 		else if (playerList.size() < 2) {
 			System.err.println("Two players are needed to play WAR, only one was given, adding Frankadopolopolous to play against " + playerList.get(0).getName());
-			playerList.add(new Player("Frankadopolopolous"));
+			playerList.add(new Player_O("Frankadopolopolous"));
 		
 		}
 		
-		this.playerList = new ArrayList<Player>();
+		this.playerList = new ArrayList<Player_O>();
 		this.playerList.add(playerList.get(0));
 		this.playerList.add(playerList.get(1));
 		
@@ -96,7 +96,7 @@ public class CardGame_War implements CardGame {
 	public void dealHands() {
 		
 		for (int cardI = 0; cardI < numOfCards; cardI++) {
-			for (Player thisPlayer : playerList) {
+			for (Player_O thisPlayer : playerList) {
 				
 //				thisPlayer.addToHand(warDeck.getACard());
 				thisPlayer.addToHand(warDeck.dealCard());
@@ -105,7 +105,7 @@ public class CardGame_War implements CardGame {
 		}
 	}
 
-	public void dealHands(Player player, DeckOfCards deck, int numOfCards) {
+	public void dealHands(Player_O player, DeckOfCards deck, int numOfCards) {
 		
 		for (int cardI = 0; cardI < numOfCards; cardI++) {
 			player.addToHand(deck.getACard());
@@ -117,7 +117,7 @@ public class CardGame_War implements CardGame {
 	public void printPlayersHands() {
 		System.out.println("\n****************************************************************************************************");
 		
-		for (Player player : playerList) {
+		for (Player_O player : playerList) {
 			System.out.println("****************************************************************************************************");
 			player.printHand();
 			System.out.println("\n****************************************************************************************************");
@@ -127,7 +127,7 @@ public class CardGame_War implements CardGame {
 
 	
 	public void foldAllHands() {
-		for (Player thisPlayer : playerList) {
+		for (Player_O thisPlayer : playerList) {
 			thisPlayer.foldHand();
 		}
 	}
@@ -234,7 +234,7 @@ public class CardGame_War implements CardGame {
 	
 	
 	
-	public void wonHand(Player winner, List<Card> wonList, Player loser) {
+	public void wonHand(Player_O winner, List<Card> wonList, Player_O loser) {
 		for (Card card : wonList) {
 			winner.addToHand(card);
 		}

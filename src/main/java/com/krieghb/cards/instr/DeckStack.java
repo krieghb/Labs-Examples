@@ -1,5 +1,8 @@
 package com.krieghb.cards.instr;
 
-public interface Deal {
+public class DeckStack {
+	
+	
+	
 
 }

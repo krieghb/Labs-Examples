@@ -15,8 +15,8 @@ public class ParentDeckOfCards {
 2)     Create another public Class named DeckofCards.  This class should have an array of class Card to contain all 52 cards.  The constructor should be able to initialize the card array to contain all 52 values.  You should also consider a counter on the number of cards in a deck.  As you deal the cards, there will be fewer cards left in the deck.
 3)     Create an Interface called Dealer which contains 2 methods, Shuffle and DealCard (which returns a Card Object)
 4)   Implement the Dealer Interface with a new class NormalDealer for the dealer.  NormalDealer implements the Shuffle method by some means of randomizing the deck (I’ll let you figure that one out).    The DealCard method will return the top card available in the deck.  Both method should be passed a DeckofCards object. 
-5)   Create a Player class that contains an array of 5 Cards and any other attributes that you would like to associate with a player.
-6)   Create a class with a main method that instantiates a DeckofCards and multiple Player.  Use the Shuffle method to shuffle the deck and DealCard method to deal 5 cards to each player.  
+5)   Create a Player_O class that contains an array of 5 Cards and any other attributes that you would like to associate with a player.
+6)   Create a class with a main method that instantiates a DeckofCards and multiple Player_O.  Use the Shuffle method to shuffle the deck and DealCard method to deal 5 cards to each player.  
 7)   Print the cards dealt to each player
 
 	 * 
@@ -30,9 +30,9 @@ c.	PokerDeck – Similar to last week’s standard deck of 52 cards.
 
 3)	Split the Dealer interface into 2 interfaces Shuffle and Deal.  The Deal interface should be extended by a Deal3 interface to extend Deal.  The Deal3 will return an array of 3 cards, while the standard Deal interface will return an array of 1 Card. Shuffle the decks. It’s typical for a Pinochle dealer to deal 3 cards at a time to each of 4 players – 12 cards each.  Create a PinochleDealer class to implement the Deal3 interface.
 
-4)	Change the Player Class to use a List<Card> similar to the DeckofCards Class.  
+4)	Change the Player_O Class to use a List<Card> similar to the DeckofCards Class.  
 
-5)	Change your main method to create a PinochleDeck, BlackJackShoe, and a PokerDeck.  Create 4 Pinochle players (deal twelve cards each, 3 at a time), 5 BlackJack Player’s – 2 Cards each from the “Shoe”, and 4 Poker Player’s – 5 Cards each.  Print each player’s hands.
+5)	Change your main method to create a PinochleDeck, BlackJackShoe, and a PokerDeck.  Create 4 Pinochle players (deal twelve cards each, 3 at a time), 5 BlackJack Player_O’s – 2 Cards each from the “Shoe”, and 4 Poker Player_O’s – 5 Cards each.  Print each player’s hands.
 
 	 */
 

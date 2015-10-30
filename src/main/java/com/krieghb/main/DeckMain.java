@@ -25,7 +25,7 @@ public class DeckMain {
 //		int numOfCards = 5;
 //		int numOfPlayers = 4;
 //		
-//		List<Player> players = new ArrayList<Player>();
+//		List<Player_O> players = new ArrayList<Player_O>();
 //		
 //		Deck newDeck = new Deck();
 //		
@@ -37,20 +37,20 @@ public class DeckMain {
 //		
 ////		//  Creating list of players
 ////		for (int playerI = 0; playerI < numOfPlayers; playerI++) {
-////			Player newPlayer = new Player();
+////			Player_O newPlayer = new Player_O();
 ////			players.add(newPlayer);
 ////		}
 //		
 //		
-//		Player newPlayer1 = new Player("Doug");
-//		Player newPlayer2 = new Player("Lisa");
-//		Player newPlayer3 = new Player("Frankadoladopolous");
-//		Player newPlayer4 = new Player("Pat");
+//		Player_O newPlayer1 = new Player_O("Doug");
+//		Player_O newPlayer2 = new Player_O("Lisa");
+//		Player_O newPlayer3 = new Player_O("Frankadoladopolous");
+//		Player_O newPlayer4 = new Player_O("Pat");
 //		
-//		players.add(new Player("Doug"));
-//		players.add(new Player("Lisa"));
-//		players.add(new Player("Frankadoladopolous"));
-//		players.add(new Player("Pat"));
+//		players.add(new Player_O("Doug"));
+//		players.add(new Player_O("Lisa"));
+//		players.add(new Player_O("Frankadoladopolous"));
+//		players.add(new Player_O("Pat"));
 //		
 //		
 //		

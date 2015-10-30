@@ -1,4 +1,6 @@
-package com.krieghb.cards.instr;
+package com.krieghb.cards.instr.abstracts;
+
+import com.krieghb.cards.instr.Card;
 
 public interface Dealer {
 	

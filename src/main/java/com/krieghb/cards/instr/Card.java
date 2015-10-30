@@ -85,9 +85,7 @@ public class Card {
 		myCard.append(getRank().getCardName());
 		myCard.append(" of ");
 		myCard.append(getSuit().getSuitString());
-		
-		System.out.println("Size: " + myCard.length());
-		
+				
 		return myCard.toString();
 	}
 

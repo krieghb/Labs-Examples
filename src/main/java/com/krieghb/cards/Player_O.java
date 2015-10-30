@@ -2,29 +2,35 @@ package com.krieghb.cards;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 import java.util.ListIterator;
 
-public class Player {
+public class Player_O {
 	
 	String playerName;
-	List<Card> playerHand;
+	ArrayList<Card> playerHand;
+	private int cardCount;
 	
 	/**
 	 * Default Constructor, creates a name("Bob"), and a blank array list.
 	 */
-	public Player() {
-		playerName = "Bob";
-		playerHand = new ArrayList<Card>();
+	public Player_O() {
+		this("Bob", new ArrayList<Card>());
 	}
 	
 	/**
 	 * Basic Constructor with a given hand.
 	 * @param hand
 	 */
-	public Player(List<Card> hand) {
-		playerName = "Larry";
-		playerHand = new ArrayList<Card>(hand);
+	public Player_O(ArrayList<Card> hand) {
+		this("Larry", hand);
+	}
+	
+	/**
+	 * Basic Constructor with just a name.
+	 * @param name
+	 */
+	public Player_O(String name) {
+		this(name, new ArrayList<Card>());
 	}
 	
 	/**
@@ -32,18 +38,18 @@ public class Player {
 	 * @param name
 	 * @param hand
 	 */
-	public Player(String name, List<Card> hand) {
-		playerName = name;
-		playerHand = new ArrayList<Card>(hand);
+	public Player_O(String name, ArrayList<Card> hand) {
+		setName(name);
+		setHand(hand);
 	}
 	
-	/**
-	 * Basic Constructor with just a name.
-	 * @param name
-	 */
-	public Player(String name) {
-		playerName = name;
-		playerHand = new ArrayList<Card>();
+	private void setName(String name) {
+		this.playerName = name;
+	}
+	
+	private void setHand(ArrayList<Card> hand) {
+		this.playerHand = new ArrayList<Card>(hand);
+		cardCount = playerHand.size();
 	}
 
 		
@@ -57,6 +63,11 @@ public class Player {
 	 */
 	public void addToHand(Card newCard) {
 		playerHand.add(newCard);
+		cardCount++;
+	}
+	
+	public void removeFromHand() {
+		removeFromHand(playerHand.get(0));
 	}
 	
 	/**
@@ -65,10 +76,7 @@ public class Player {
 	 */
 	public void removeFromHand(Card oldCard) {
 		playerHand.remove(oldCard);
-	}
-	
-	public void removeFromHand() {
-		playerHand.remove(0);
+		cardCount--;
 	}
 	
 	
@@ -77,6 +85,16 @@ public class Player {
 	 */
 	public void foldHand() {
 		playerHand.clear();
+		cardCount = 0;
+	}
+	
+	public int getCardCount() {
+		return cardCount;
+	}
+	
+	
+	public boolean isHandEmpty() {
+		return cardCount == 0;
 	}
 	
 	/**
