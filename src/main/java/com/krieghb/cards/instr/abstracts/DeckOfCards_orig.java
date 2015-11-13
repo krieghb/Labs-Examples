@@ -7,24 +7,20 @@ import com.krieghb.cards.instr.ShuffleCards;
 import com.krieghb.cards.instr.constants.Rank;
 import com.krieghb.cards.instr.constants.Suit;
 
-public class DeckOfCards {
+public class DeckOfCards_orig {
 	
 	
 	protected ArrayList<Card> cardDeck = new ArrayList<Card>(52);
 	protected int cardCount;
 	protected int numDecks;
 	
-	public DeckOfCards() {
+	public DeckOfCards_orig() {
 	
 		this(1);
 	}
 	
-	public DeckOfCards(int numDecks) {
+	public DeckOfCards_orig(int numDecks) {
 		this.numDecks = numDecks;
-		initialize(0);
-	}
-	
-	public void initialize(int a) {
 		loadDeck();
 	}
 	

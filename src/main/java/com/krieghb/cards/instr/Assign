@@ -125,3 +125,16 @@ Hopefully, you’ll find the changes to be implemented relatively straight forwa
 	to the changes above for the cardgame program, you can also review the lessons from the Polymorphism file on the 
 	sharepoint contain the material covered in the lectures.
 
+
+
+
+Java Week 7 Assignment
+
+Modify the Deal() method to throw an exception when attempting to deal cards and there are no cards left in the deck.  
+
+1)	Create a new class (DealCardException) for custom runtime exception which extends RuntimeException.  Implement the constructor that accepts a message.
+2)	In the Deal1 and Deal3 classes which implement the Deal interface, throw a DealCardException if there are no more (or insufficient) cards left in the deck.  Set an appropriate message for the Exception. 
+3)	In the DeckofCards class indicate that the Deal() method throws the DealCardException
+4)	Add support to the callers of the Deal() method to catch a DealCardException and print the message associated with the exception and continue processing. 
+5)	You’ll need to modify your dealing to more cards than the deck contains in order for the exception to occur.
+

@@ -22,6 +22,7 @@ public class PinocleDealer implements Deal3, Shuffle {
 	
 	public PinocleDealer(PinocleDeck deck) {
 		this.deck = deck;
+		shuffle();
 	}
 
 	public void shuffle() {

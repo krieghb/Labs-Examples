@@ -3,6 +3,7 @@ package com.krieghb.cards.instr;
 import java.util.ArrayList;
 
 import com.krieghb.cards.instr.abstracts.DeckOfCards;
+import com.krieghb.cards.instr.cardgames.CardGame_War;
 import com.krieghb.cards.instr.dealers.BlackJackDealer;
 import com.krieghb.cards.instr.dealers.NormalDealer;
 import com.krieghb.cards.instr.dealers.PinocleDealer;
@@ -28,26 +29,20 @@ public class SimpleHands {
 		Player pPlayer3 = new Player("Larry");
 		Player pPlayer4 = new Player("Shemp");
 		
-		Player bjPlayer1 = new Player("Gibbs");
-		Player bjPlayer2 = new Player("McGee");
-		Player bjPlayer3 = new Player("Tony");
-		Player bjPlayer4 = new Player("Ducky");
-		Player bjPlayer5 = new Player("Ziva");
+		BlackjackPlayer bjPlayer1 = new BlackjackPlayer("Gibbs");
+		BlackjackPlayer bjPlayer2 = new BlackjackPlayer("McGee");
+		BlackjackPlayer bjPlayer3 = new BlackjackPlayer("Tony");
+		BlackjackPlayer bjPlayer4 = new BlackjackPlayer("Ducky");
+		BlackjackPlayer bjPlayer5 = new BlackjackPlayer("Ziva");
 
 		Player poPlayer1 = new Player("Cartman");
 		Player poPlayer2 = new Player("Kenny");
 		Player poPlayer3 = new Player("Stan");
 		Player poPlayer4 = new Player("Eddie");
 		
-//		for (int i = 0; i < 5; i++){
-//			player1.getACard(joeTheDealer.dealCard(deck));
-//			player2.getACard(joeTheDealer.dealCard(deck));
-//			
-//		}
-//		
-//		
-//		player1.showHands();
-//		player2.showHands();
+		
+		
+		
 
 		ArrayList<Player> wPlayerList = new ArrayList<Player>();
 		wPlayerList.add(wPlayer1);
@@ -72,7 +67,8 @@ public class SimpleHands {
 		poPlayerList.add(poPlayer3);
 		poPlayerList.add(poPlayer4);
 		
-//		new CardGame_War(playerList);
+		//  Playing War
+//		new CardGame_War(wPlayerList);
 		
 		//  Playing Pinocle
 		larryTheDealer.dealHands(pPlayerList);
@@ -84,6 +80,7 @@ public class SimpleHands {
 		moeTheDealer.DealHands(bjPlayerList);
 		for (Player player : bjPlayerList) {
 			player.showHands();
+			
 		}
 		
 		//  Playing Poker

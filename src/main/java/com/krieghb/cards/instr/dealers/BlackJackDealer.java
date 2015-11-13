@@ -21,6 +21,7 @@ public class BlackJackDealer implements Deal, Shuffle {
 	
 	public BlackJackDealer(DeckOfCards deck) {
 		this.deck = deck;
+		shuffle();
 	}
 	
 	public void shuffle() {

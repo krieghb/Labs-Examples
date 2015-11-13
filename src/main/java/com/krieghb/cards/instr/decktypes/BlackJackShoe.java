@@ -7,6 +7,10 @@ public class BlackJackShoe extends DeckOfCards{
 	public BlackJackShoe() {
 		
 		numDecks = 6;
+		initialize();  //  loadDeck();
+	}
+	
+	public void initialize() {
 		loadDeck();
 	}
 

@@ -9,6 +9,10 @@ public class PinocleDeck extends DeckOfCards {
 	
 	public PinocleDeck() {
 		numDecks = 2;
+		initialize();  // loadDeck();
+	}
+	
+	public void initialize() {
 		loadDeck();
 	}
 	

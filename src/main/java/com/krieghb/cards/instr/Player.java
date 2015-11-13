@@ -6,9 +6,10 @@ import com.krieghb.utilities.Utilities;
 
 public class Player {
 	
-	private ArrayList<Card> playerHand;
-	private String playerName;
-	private int cardCount;
+	protected ArrayList<Card> playerHand;
+	protected String playerName;
+	protected int cardCount;
+	protected int handValue;
 	
 	
 	public Player() {
@@ -26,14 +27,15 @@ public class Player {
 	public Player(String playerName, ArrayList<Card> playerHand) {
 		setName(playerName);
 		setHand(playerHand);
+		handValue = 0;
 	}
 	
 	
-	private void setHand(ArrayList<Card> hand) {
+	protected void setHand(ArrayList<Card> hand) {
 		this.playerHand = new ArrayList<Card>(hand);
 		cardCount = playerHand.size();
 	}
-	private void setName(String name) {
+	protected void setName(String name) {
 		this.playerName = name;
 	}
 	public String getPlayerName() {
@@ -52,6 +54,7 @@ public class Player {
 	public void getACard(Card card) {
 		playerHand.add(card);
 		cardCount++;
+		handValue += card.getRank().getSecondRank();
 	}
 	/**
 	 * Method to remove a card from the player's hand
@@ -68,6 +71,8 @@ public class Player {
 		Card byeCard = playerHand.remove(index);
 		cardCount--;
 		
+		handValue -= byeCard.getRank().getSecondRank();
+		
 		return byeCard;
 	}
 	/**
@@ -76,6 +81,7 @@ public class Player {
 	public void foldHand() {
 		playerHand.clear();
 		cardCount = 0;
+		handValue = 0;
 	}
 	
 	/**
@@ -98,7 +104,11 @@ public class Player {
 		int dispCounter = 0;
 		
 		
-		playerOut.append(getPlayerName() + " has the following hands:\n");
+		playerOut.append(getPlayerName() + " has the following cards:\n");
+		
+		if (isHandEmpty()) {
+			playerOut.append("Empty Hand.");
+		}
 		
 		
 		for (int i = 0; i < cardCount; i++) {
@@ -122,13 +132,13 @@ public class Player {
 		
 		System.out.print(getHands() + "\n");
 		
-		if (isHandEmpty()) {
-			System.out.println("No cards.");
-		}
-		else {
-
-			playerHand.get(0).getCardString();
-		}
+//		if (isHandEmpty()) {
+//			System.out.println("No cards.");
+//		}
+//		else {
+//
+//			playerHand.get(0).getCardString();
+//		}
 		
 		
 	}

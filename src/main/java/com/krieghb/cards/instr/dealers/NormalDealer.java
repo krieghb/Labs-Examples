@@ -18,6 +18,7 @@ public class NormalDealer implements Dealer {
 	
 	public NormalDealer(DeckOfCards deck) {
 		this.deck = deck;
+		shuffle();
 	}
 	
 	public void shuffle() {

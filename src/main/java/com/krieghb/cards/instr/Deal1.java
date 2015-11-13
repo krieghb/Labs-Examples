@@ -13,12 +13,15 @@ public class Deal1 implements Deal {
 		
 	}
 
-	public ArrayList<Card> dealCard(DeckOfCards deck) {
+	public ArrayList<Card> dealCard(DeckOfCards deck) throws DealCardException {
 		ArrayList<Card> cards = new ArrayList<Card>();
 		
 		try{
 			cards.add(deck.getDeck().remove(0));
 			deck.decrementCount();
+		}
+		catch (DealCardException e) {
+			
 		}
 		catch (IndexOutOfBoundsException e) {
 			System.out.print("Failure in dealing card.");

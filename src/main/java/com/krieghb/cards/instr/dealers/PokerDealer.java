@@ -21,6 +21,7 @@ public class PokerDealer implements Deal, Shuffle {
 	
 	public PokerDealer(DeckOfCards deck) {
 		this.deck = deck;
+		shuffle();
 	}
 	
 	public void shuffle() {
